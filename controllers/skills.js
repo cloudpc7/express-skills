@@ -2,23 +2,16 @@ const Skill = require('../models/skills');
 
 module.exports = {
     index,
-    show,
     new: newSkill,
     create,
     delete: deleteSkill,
-    update
+    update,
+    description
 }
 
 function index(req,res){
     res.render('skills/index',{
        skills: Skill.getAll() 
-    });
-}
-
-function show(req,res){
-    res.render('skills/index', {
-        skills: Skill.getAll(),
-        time: req.time
     });
 }
 
@@ -39,4 +32,8 @@ function update(req,res){
     req.body.done = !!req.body.done;
     Skill.update(req.params.id,req,body);
     res.redirect(`/skills/${req.params.id}`);
+}
+
+function description(req,res){
+    res.render('/skills/description');
 }

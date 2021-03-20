@@ -1,10 +1,10 @@
 let skills = [
-    {id: 13659, skill: 'HTML'},
-    {id: 13452, skill: 'CSS'},
-    {id: 1576, skill: 'Javascript'},
-    {id: 1248, skill: 'Express'},
-    {id: 0923, skill: 'MonboDB'},
-    {id: 1005, skill: 'Python'}
+    {id: 13659, skill: 'HTML', description:'hello '},
+    {id: 13452, skill: 'CSS', description: 'html'},
+    {id: 1576, skill: 'Javascript', description: 'css'},
+    {id: 1248, skill: 'Express', description: 'express'},
+    {id: 0923, skill: 'MonboDB', description: 'test'},
+    {id: 1005, skill: 'Python', description: '123'}
 ];
 
 module.exports = {
@@ -12,7 +12,8 @@ module.exports = {
     getOne,
     create,
     deleteOne,
-    update
+    update,
+    description
 };
 
 function getAll(){
@@ -41,4 +42,8 @@ function update(id, skill){
     const idx = skills.findIndex(skill => skill.id === id);
     skill.id = id;
     skills.splice(idx, 1,skill);
+}
+
+function description(skill){
+    console.log(skills.description);
 }
